@@ -19,6 +19,6 @@ func Init() (*gorm.DB, error) {
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Shanghai", HOST, USER, PW, DBNAME, PORT)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	db.AutoMigrate(&models.User{}, &models.Events{}, &models.Performer{}, &models.Venue{})
+	db.AutoMigrate(&models.User{}, &models.Event{}, &models.Performer{}, &models.Venue{}, &models.Ticket{}, &models.Booking{})
 	return db, err
 }
